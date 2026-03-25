@@ -110,3 +110,29 @@ FROM
   available_books;
 
 DROP VIEW available_books;
+
+CREATE
+OR REPLACE FUNCTION apply_discount (price NUMERIC, discount_percent NUMERIC) RETURNS NUMERIC AS
+$$
+  BEGIN
+      RETURN price - (price*discount_percent/100);
+  END;
+$$ LANGUAGE PLPGSQL;
+
+SELECT
+  title,
+  price,
+  apply_discount (price, 10) AS discounted_price
+FROM
+  books;
+
+CREATE INDEX idx_books_title ON books (title);
+
+SELECT
+  *
+FROM
+  books;
+
+CREATE INDEX idx_books_author_price ON books (author_name, price);
+
+DROP INDEX "idx_books_title";
