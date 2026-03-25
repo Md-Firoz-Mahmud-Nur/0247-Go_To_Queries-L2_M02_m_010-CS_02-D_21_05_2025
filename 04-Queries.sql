@@ -180,23 +180,3 @@ SELECT
 FROM
   books b
   FULL JOIN publishers p ON b.publisher_id = p.id;
-
-SELECT
-  CURRENT_DATE;
-
-SELECT
-  EXTRACT(
-    YEAR
-    FROM
-      CURRENT_DATE
-  ) AS YEAR,
-  EXTRACT(
-    MONTH
-    FROM
-      CURRENT_DATE
-  ) AS MONTH,
-  EXTRACT(
-    DAY
-    FROM
-      CURRENT_DATE
-  ) AS DAY;
