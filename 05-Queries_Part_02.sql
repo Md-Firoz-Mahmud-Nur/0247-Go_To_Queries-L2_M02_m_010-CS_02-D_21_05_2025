@@ -94,3 +94,19 @@ SELECT
   *
 FROM
   books;
+
+CREATE VIEW
+  available_books AS
+SELECT
+  *
+FROM
+  books
+WHERE
+  in_stock = TRUE;
+
+SELECT
+  *
+FROM
+  available_books;
+
+DROP VIEW available_books;
