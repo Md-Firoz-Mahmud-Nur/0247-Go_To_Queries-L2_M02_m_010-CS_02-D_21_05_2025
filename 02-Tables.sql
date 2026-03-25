@@ -14,3 +14,7 @@ CREATE TABLE
     publisher_id INT,
     FOREIGN KEY (publisher_id) REFERENCES publishers (id)
   );
+
+DROP TABLE books;
+
+DROP TABLE publishers;
